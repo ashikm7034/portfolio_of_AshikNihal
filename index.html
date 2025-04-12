@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dream Project Malayalam</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="hero">
+    <div class="stars"></div> <!-- Static stars container -->
+
+    <!-- Center Logo and Text -->
+    <div class="center-content">
+      <div class="logo"></div>
+      <h1>Dream Project Malayalam</h1>
+      <p>Every Dream Has a Story. This is Ours</p>
+    </div>
+
+    <!-- Person Images -->
+    <div class="person person-left">
+      <img src="person1.png" alt="Person 1" />
+    </div>
+    <div class="person person-right">
+      <img src="person2.png" alt="Person 2" />
+    </div>
+  </div>
+
+  <script>
+    // Create particles that follow the mouse
+    document.addEventListener("mousemove", function(event) {
+      const particle = document.createElement("div");
+      particle.classList.add("particle");
+      
+      // Set the initial position of the particle at the mouse cursor position
+      particle.style.left = `${event.clientX - 5}px`;  // Adjust to center particle on the mouse
+      particle.style.top = `${event.clientY - 5}px`;   // Adjust to center particle on the mouse
+      
+      document.body.appendChild(particle);
+      
+      // Remove the particle after animation completes
+      setTimeout(() => {
+        particle.remove();
+      }, 1500); // Matches the duration of the animation
+    });
+  </script>
+</body>
+</html>
+
