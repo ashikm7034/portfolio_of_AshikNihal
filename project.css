@@ -1,0 +1,123 @@
+/* Project Section Styles */
+body {
+    background: #1a1a2e;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+    cursor: none;
+    overflow-x: hidden;
+    padding-top: 50px;
+  }
+  
+  /* Project Section */
+  #project {
+    position: relative;
+    background: #16213e;
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 2px solid #ffbc00;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  #project h2 {
+    font-size: 3rem;
+    color: #ffbc00;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fade-in-up 1.5s ease-out;
+  }
+  
+  #project p {
+    font-size: 1.2rem;
+    color: #bbb;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    animation: fade-in-up 2s ease-out;
+  }
+  
+  .project-card {
+    background: #1a1a2e;
+    border: 2px solid #ffbc00;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+  }
+  
+  .project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .project-card h3 {
+    font-size: 1.8rem;
+    color: #ffbc00;
+    margin-bottom: 10px;
+  }
+  
+  .project-card p {
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+  .project-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffbc00;
+    color: #16213e;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+  }
+  
+  .project-btn:hover {
+    background: #ff7f50;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Particle Effect for Interactive Visual */
+  .particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: particle-effect 1.5s ease-out forwards;
+  }
+  
+  @keyframes particle-effect {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+  

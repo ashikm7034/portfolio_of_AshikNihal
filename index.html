@@ -3,47 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dream Project Malayalam</title>
+  <title>Dream Project Malayalam - Page 1</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script defer src="index.js"></script>
 </head>
 <body>
-  <div class="hero">
-    <div class="stars"></div> <!-- Static stars container -->
 
-    <!-- Center Logo and Text -->
-    <div class="center-content">
-      <div class="logo"></div>
-      <h1>Dream Project Malayalam</h1>
-      <p>Every Dream Has a Story. This is Ours</p>
-    </div>
-
-    <!-- Person Images -->
-    <div class="person person-left">
-      <img src="person1.png" alt="Person 1" />
-    </div>
-    <div class="person person-right">
-      <img src="person2.png" alt="Person 2" />
-    </div>
+  <!-- Loading Animation -->
+  <div class="loading-container" id="loading-container">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <dotlottie-player 
+      src="https://lottie.host/70821b1b-a046-44e8-9bde-7e3a2ef40eed/UJKnyVW00V.lottie"
+      background="transparent" 
+      speed="1" 
+      style="width: 300px; height: 300px" 
+      loop 
+      autoplay>
+    </dotlottie-player>
+    <div class="loading-text">Loading, please wait...</div>
   </div>
 
-  <script>
-    // Create particles that follow the mouse
-    document.addEventListener("mousemove", function(event) {
-      const particle = document.createElement("div");
-      particle.classList.add("particle");
-      
-      // Set the initial position of the particle at the mouse cursor position
-      particle.style.left = `${event.clientX - 5}px`;  // Adjust to center particle on the mouse
-      particle.style.top = `${event.clientY - 5}px`;   // Adjust to center particle on the mouse
-      
-      document.body.appendChild(particle);
-      
-      // Remove the particle after animation completes
-      setTimeout(() => {
-        particle.remove();
-      }, 1500); // Matches the duration of the animation
-    });
-  </script>
+  <!-- Main Content -->
+  <div class="main-content" id="main-content">
+    <!-- Transparent Top Bar -->
+    <div class="top-bar">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+      <div class="stars"></div>
+      <div class="center-content">
+        <div class="logo"></div>
+        <h1>Dream Project Malayalam</h1>
+        <p>Every Dream Has a Story. This is Ours.</p>
+      </div>
+
+      <div class="person person-left">
+        <img src="person1.png" alt="Nihal M" />
+        <div class="person-name">Nihal M</div>
+      </div>
+      <div class="person person-right">
+        <img src="person2.png" alt="Ashik M" />
+        <div class="person-name">Ashik M</div>
+      </div>
+    </div>
+
+    <a href="#project" class="scroll-down">↓ Scroll Down</a>
+
+    <!-- Goals/Vision Section -->
+    <section id="goals" class="next-section">
+      <h2>Our Vision</h2>
+      <div class="vision-content glow">
+        <p class="vision-statement">To identify real-world problems and solve them through creativity, technology, and teamwork.</p>
+        <p class="vision-belief">We believe that every great project starts with a question — and we strive to find the answers that make a difference.</p>
+      </div>
+    </section>
+
+    <!-- Project Section -->
+    <section id="project" class="next-section">
+      <h2>Our Projects</h2>
+      <div class="project-grid">
+        <div class="project-card glow">
+          <h3>Smart Light System</h3>
+          <p>An intelligent lighting solution that adapts to mood and movement.</p>
+        </div>
+        <div class="project-card glow">
+          <h3>Street Light Automation</h3>
+          <p>Arduino-controlled system with brightness and short-circuit detection.</p>
+        </div>
+        <div class="project-card glow">
+          <h3>Robotics Workshop</h3>
+          <p>Educational training on Arduino-based robotics for beginners.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="next-section">
+      <h2 class="team-title">Our Team</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="card-front">
+            <img src="team1.png" alt="Nihal M" class="team-photo">
+            <div class="name-overlay">
+              <h3>Nihal M</h3>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="social-links">
+              <a href="https://www.instagram.com/nihalmavungal?igsh=Mng3ZzNpN25oNXVv" target="_blank" class="social-btn instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/nihal-m-7973b1203/" target="_blank" class="social-btn linkedin">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="card-front">
+            <img src="team2.png" alt="Ashik M" class="team-photo">
+            <div class="name-overlay">
+              <h3>Ashik M</h3>
+            </div>
+          </div>
+          <div class="card-back">
+            <div class="social-links">
+              <a href="https://www.instagram.com/ashiklalum?igsh=MW1lZThjYng5bmsxaw==" target="_blank" class="social-btn instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/ashik-m-50a081260/" target="_blank" class="social-btn linkedin">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="next-section">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" style="background-image: url('model.png')"></div>
+        <div class="gallery-item" style="background-image: url('person2k.png')"></div>
+        <div class="gallery-item" style="background-image: url('logo12.png')"></div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="next-section">
+      <h2>Let's Connect</h2>
+      <form class="contact-form glow">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glow">
+      <p>© 2023 Dream Project Malayalam</p>
+      <div class="social-links">
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
 </body>
 </html>
-
