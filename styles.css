@@ -73,6 +73,17 @@ body, html {
   background: black;
   overflow: hidden;
   border-bottom: 4px solid #ffbc00;
+  box-shadow: 0 0 15px 4px #ffbc00;
+  animation: glow-border 2s infinite alternate;
+}
+
+@keyframes glow-border {
+  0% {
+    box-shadow: 0 -4px 10px 2px #ffbc00;
+  }
+  100% {
+    box-shadow: 0 -6px 20px 6px #ffbc00;
+  }
 }
 .stars::before {
   content: '';
@@ -175,7 +186,21 @@ body, html {
   background: #1a1a2e;
   padding: 100px 40px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
+
+.next-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Add delay for staggered animations */
+.next-section:nth-child(1) { transition-delay: 0.1s; }
+.next-section:nth-child(2) { transition-delay: 0.2s; }
+.next-section:nth-child(3) { transition-delay: 0.3s; }
+.next-section:nth-child(4) { transition-delay: 0.4s; }
 .next-section h2 {
   font-size: 2.5rem;
   margin-bottom: 40px;
@@ -228,6 +253,18 @@ body, html {
   border: 1px solid #ffbc00;
   border-radius: 15px;
   text-align: center;
+  transition: box-shadow 0.5s ease;
+}
+.vision-content:hover {
+  animation: pulse-glow 2s infinite alternate;
+}
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px #ffbc00;
+  }
+  100% {
+    box-shadow: 0 0 20px #ffbc00;
+  }
 }
 
 .vision-statement {
@@ -270,6 +307,59 @@ body, html {
   perspective: 1000px;
   margin: 20px;
   transform-style: preserve-3d;
+  animation: float 6s ease-in-out infinite;
+  transition: all 0.5s ease;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotateY(0);
+  }
+  50% {
+    transform: translateY(-20px) rotateY(5deg);
+  }
+}
+
+.team-card:hover {
+  animation: none;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 30px rgba(255, 188, 0, 0.3);
+}
+
+.card-front, .project-card {
+  animation: pulse 4s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-front::before, .project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at var(--x, 100px) var(--y, 100px),
+    rgba(255, 255, 255, 0.3),
+    transparent 30%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card-front:hover::before, 
+.project-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(255, 188, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 188, 0, 0.6);
+  }
 }
 
 .team-card.flipped {
@@ -535,6 +625,7 @@ footer {
   margin-top: 60px;
 }
 
+
 .social-links {
   margin-top: 20px;
 }
@@ -559,6 +650,56 @@ footer {
   from { transform: translateX(-150px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
 }
+
+@keyframes vision-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#goals.visible {
+  animation: vision-zoom-in 1s ease forwards;
+}
+
+#goals, #goals .vision-content {
+  animation: pulse 4s ease infinite;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#goals:hover, #goals:hover .vision-content {
+  transform: translateY(-5px);
+}
+
+#goals::before, #goals .vision-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at var(--x, 100px) var(--y, 100px),
+    rgba(255, 255, 255, 0.3),
+    transparent 30%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  border-radius: 15px;
+  z-index: 0;
+}
+
+#goals:hover::before, #goals:hover .vision-content::before {
+  opacity: 1;
+}
+
 @keyframes slide-in-right {
   from { transform: translateX(150px); opacity: 0; }
   to { transform: translateX(0); opacity: 1; }
@@ -587,4 +728,12 @@ footer {
 @keyframes particle-effect {
   0% { transform: scale(1); opacity: 1; }
   100% { transform: scale(0); opacity: 0; }
+}
+
+.project-thumbnail {
+  max-width: 250px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
