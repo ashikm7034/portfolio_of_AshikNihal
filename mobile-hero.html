@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Responsive Hero with Side-by-Side Images</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #ffbc00;
+    text-align: center;
+  }
+  .hero {
+    padding: 20px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  .image-row {
+    display: none;
+  }
+  @media (max-width: 767px) {
+    .image-row {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      max-width: 100vw;
+      overflow: hidden;
+    }
+    .image-row img {
+      width: 50vw;
+      aspect-ratio: 2 / 3;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <h1>Dream Project Malayalam</h1>
+    <p>Every Dream Has a Story. This is Ours.</p>
+    <div class="image-row">
+      <img src="person1.png" alt="Person 1" />
+      <img src="person2.png" alt="Person 2" />
+    </div>
+  </div>
+</body>
+</html>

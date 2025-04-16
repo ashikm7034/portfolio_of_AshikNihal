@@ -61,7 +61,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       const data = await response.json();
       projectGrid.innerHTML = '';
-      data.records.forEach(record => {
+
+      // Show first 6 projects in grid
+      data.records.slice(0, 6).forEach(record => {
         const fields = record.fields;
         const thumbnailUrl = fields.thumbnail && fields.thumbnail.length > 0 ? fields.thumbnail[0].url : '';
         const projectCard = document.createElement('div');
@@ -72,6 +74,27 @@ document.addEventListener("DOMContentLoaded", function() {
           <p>${fields['short description'] ? fields['short description'] : 'No description available.'}</p>
         `;
         projectGrid.appendChild(projectCard);
+      });
+
+      // Show 7th, 8th, and 9th projects images in stacked cards dynamically
+      const stackedCards = document.querySelectorAll('.stacked-card');
+      stackedCards.forEach((card, index) => {
+        const record = data.records[6 + index];
+        const imgElem = card.querySelector('.stacked-image');
+        if (record && imgElem) {
+          const fields = record.fields;
+          const thumbnailUrl = fields.thumbnail && fields.thumbnail.length > 0 ? fields.thumbnail[0].url : '';
+          if (thumbnailUrl) {
+            imgElem.src = thumbnailUrl;
+            imgElem.alt = fields.name;
+          } else {
+            imgElem.src = '';
+            imgElem.alt = '';
+          }
+        } else if (imgElem) {
+          imgElem.src = '';
+          imgElem.alt = '';
+        }
       });
     } catch (error) {
       projectGrid.innerHTML = '<p>Failed to load projects from Airtable.</p>';
@@ -149,4 +172,50 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   });
 
+  // Animate project section cards on scroll into view
+  const projectSection = document.getElementById('project');
+  const stackedCards = document.querySelector('.stacked-cards');
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
+
+  function onScroll() {
+    if (isInViewport(projectSection)) {
+      projectSection.classList.add('visible');
+      window.removeEventListener('scroll', onScroll);
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Click event for stacked cards
+  if (stackedCards) {
+    stackedCards.addEventListener('click', () => {
+      // Smooth scroll to "See All Projects" section or redirect
+      // For demo, smooth scroll to project section itself
+      const allProjectsSection = document.getElementById('project');
+      if (allProjectsSection) {
+        allProjectsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Alternatively, redirect to external site:
+      // window.location.href = 'https://example.com/all-projects';
+    });
+  }
+
+  // Click event for "Click here to view more" link
+  const viewMoreLink = document.getElementById('view-more-link');
+  if (viewMoreLink) {
+    viewMoreLink.addEventListener('click', () => {
+      const allProjectsSection = document.getElementById('project');
+      if (allProjectsSection) {
+        allProjectsSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
 });

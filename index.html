@@ -6,6 +6,9 @@
   <title>Dream Project Malayalam - Page 1</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Audiowide&family=Exo+2:wght@300;400;600;700&family=Rajdhani:wght@300;400;500;600;700&family=Syncopate:wght@400;700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script defer src="index.js"></script>
 </head>
 <body>
@@ -31,7 +34,7 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#project">Project</a></li>
-        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">About Us</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -57,20 +60,110 @@
 
     <a href="#project" class="scroll-down">↓ Scroll Down</a>
 
-    <!-- Goals/Vision Section -->
-    <section id="goals" class="next-section">
-      <h2>Our Vision</h2>
-      <div class="vision-content glow">
-        <p class="vision-statement">To identify real-world problems and solve them through creativity, technology, and teamwork.</p>
-        <p class="vision-belief">We believe that every great project starts with a question — and we strive to find the answers that make a difference.</p>
-      </div>
-    </section>
+<!-- Goals/Vision Section -->
+<!-- Wind Effect Overlay -->
+<dotlottie-player 
+src="https://lottie.host/dfce16a6-939d-4253-b5ca-e748bfb0f02a/vQRlH40ma8.lottie"
+background="transparent"
+  
+
+
+
+
+  style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999;"
+  loop
+  autoplay>
+</dotlottie-player><script>
+  // JavaScript to handle scroll events and play animations
+  const sections = document.querySelectorAll('.next-section');
+  const players = document.querySelectorAll('dotlottie-player');
+
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5 // Trigger when 50% of the section is in view
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const player = players[Array.from(sections).indexOf(entry.target)];
+        player.play();
+      }
+    });
+  }, options);
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+<section id="goals" class="next-section">
+  <h2>Our Vision</h2>
+  <div class="vision-content glow" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+    <dotlottie-player
+      src="https://lottie.host/404f08fc-6df5-4560-a5fb-ad6e4d4972f2/AcAOTnRpkm.lottie"
+      background="transparent"
+      speed="1.5"
+      style="width: 300px; height: 300px; margin-bottom: 20px;"
+      loop
+      autoplay
+    ></dotlottie-player>
+    <p class="vision-statement">To identify real-world problems and solve them through creativity, technology, and teamwork.</p>
+    <p class="vision-belief">We believe that every great project starts with a question — and we strive to find the answers that make a difference.</p>
+  </div>
+</section>
 
     <!-- Project Section -->
     <section id="project" class="next-section">
-      <h2>Our Projects</h2>
-      <div class="project-grid" id="project-grid">
+    <h2 style="text-align: center;">Our Projects</h2>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+        <div style="flex: 1; text-align: right; transform: rotate(30deg);">
+          <dotlottie-player
+            src="https://lottie.host/a2057fe6-c6b4-45da-8629-03fe30c16f64/s2cuu5db6X.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 300px; height: 300px;"
+            loop
+            autoplay>
+          </dotlottie-player>
+        </div>
+        
       </div>
+      
+      
+      <div class="project-grid" id="project-grid">
+        <div class="project-card">
+          <img src="project1.png" alt="Project 1" class="project-thumbnail" />
+          <h3>Project One</h3>
+          <p>A short description of project one.</p>
+        </div>
+        <div class="project-card">
+          <img src="project2.png" alt="Project 2" class="project-thumbnail" />
+          <h3>Project Two</h3>
+          <p>A short description of project two.</p>
+        </div>
+        <div class="project-card">
+          <img src="project3.png" alt="Project 3" class="project-thumbnail" />
+          <h3>Project Three</h3>
+          <p>A short description of project three.</p>
+        </div>
+        <div class="project-card">
+          <img src="project4.png" alt="Project 4" class="project-thumbnail" />
+          <h3>Project Four</h3>
+          <p>A short description of project four.</p>
+        </div>
+      </div>
+      <div class="stacked-cards">
+        <div class="stacked-card card-left"><img src="" alt="Project Image Left" class="stacked-image"></div>
+       <div class="stacked-card card-center">
+         <img src="" alt="Project Image Center" class="stacked-image">
+       </div>
+       <div class="stacked-card card-right"><img src="" alt="Project Image Right" class="stacked-image"></div>
+     </div>
+     <div style="text-align:center; margin-top: 10px; color: #ffbc00; font-weight: bold; cursor: pointer;" id="view-more-link">
+       Click here to view more
+     </div>
     </section>
 
     <!-- Team Section -->
